@@ -11,26 +11,26 @@
                         <div class="mb-4 md:flex md:justify-between">
                             <div class="mb-4 md:mr-2 md:mb-0">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="firstName">
-                                    Ваша Фамилия
+                                    Ваше Имя
                                 </label>
                                 <input
-                                    v-model="FirstName"
+                                    v-model="first_name"
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     id="first_name"
                                     type="text"
-                                    placeholder="Иванов"
+                                    placeholder="Иван"
                                 />
                             </div>
                             <div class="md:ml-2">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
-                                    Ваше Имя
+                                    Ваша фамилия
                                 </label>
                                 <input
-                                    v-model="LastName"
+                                    v-model="last_name"
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="lastName"
+                                    id="last_name"
                                     type="text"
-                                    placeholder="Иван"
+                                    placeholder="Иванов"
                                 />
                             </div>
                         </div>
@@ -56,6 +56,7 @@
                                     id="password"
                                     type="password"
                                     placeholder="******************"
+                                    v-model="password"
                                 />
                                 <p class="text-xs italic text-red-500">Впишите свой пароль в поле</p>
                             </div>
@@ -68,6 +69,7 @@
                                     id="c_password"
                                     type="password"
                                     placeholder="******************"
+                                    v-model="password_confirmation"
                                 />
                             </div>
                         </div>
@@ -96,29 +98,26 @@ export default {
 
     data() {
         return {
-            FirstName: '1',
-            LastName: '2',
-            email: 'dsadd4dsasa@mail.ru',
-            PhoneNumber: '4',
-            password: '5',
-            password_confirmation: '5',
+            first_name: null,
+            last_name: null,
+            email: null,
+            password: null,
+            password_confirmation: null,
             errors: {},
         }
 
     },
     methods: {
         register() {
-            console.log('123');
             axios.post('/api/register', {
-                name: "name",
-                first_name: this.FirstName,
-                last_name: this.LastName,
+                first_name: this.first_name,
+                last_name: this.last_name,
                 email: this.email,
                 password: this.password,
                 password_confirmation: this.password_confirmation,
             })
                 .then(res => {
-                    if (res.status === 201){
+                    if (res.status === 204){
                         localStorage.setItem('token', res.data.token)
                     }
                     console.log(res);

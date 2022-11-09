@@ -17,36 +17,25 @@
                                 id="email"
                                 type="email"
                                 placeholder="emailexample@mail.ru"
+                                v-model="email"
                             />
                         </div>
-                        <div class="mb-4 md:flex md:justify-between">
-                            <div class="mb-4 md:mr-2 md:mb-0">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
-                                    Ваш пароль
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="password"
-                                    type="password"
-                                    placeholder="******************"
-                                />
-                                <p class="text-xs italic text-red-500">Впишите свой пароль в поле</p>
-                            </div>
-                            <div class="md:ml-2">
-                                <label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
-                                    Повторите свой пароль
-                                </label>
-                                <input
-                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="c_password"
-                                    type="password"
-                                    placeholder="******************"
-                                />
-                            </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                                Ваш пароль
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="password"
+                                type="password"
+                                placeholder="******************"
+                                v-model="password"
+                            />
+                            <p class="text-xs italic text-red-500">Впишите свой пароль в поле</p>
                         </div>
                         <div class="mb-6 text-center">
                             <button class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                                    type="button">
+                                    type="button" @click.prevent="login">
                                 Создать аккаунт
                             </button>
                         </div>
@@ -69,8 +58,34 @@
 </template>
 
 <script>
+
 export default {
-    name: "Register"
+    name: "Register",
+    data() {
+        return {
+            email: null,
+            password: null,
+            errors: {},
+        }
+
+    },
+    methods: {
+        login() {
+            axios.post('/api/login', {
+                email: this.email,
+                password: this.password,
+            })
+                .then(res => {
+                    if (res.status === 200){
+                        localStorage.setItem('token', res.data.token)
+                        this.$router.push({name: "Home"})
+                    }
+                })
+                .catch((error) => {
+                    console.log("ERRRR:: ", error.response.data);
+                })
+        }
+    }
 }
 </script>
 

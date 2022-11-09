@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -30,5 +32,31 @@ class UserController extends Controller
         return response()->json([
             'token' => $user->api_token
         ], 201);
+    }
+
+    /**
+     * @throws ValidationException
+     */
+    public function login(Request $request)
+    {
+
+        $request->validate([
+            "email" => ["required", "string"],
+            "password" => ["required"]
+        ]);
+        $user = User::where(["email" => $request["email"]])->first();
+
+        if (Auth::attempt($request->only('email', 'password'))){
+            return response()->json([
+                'token' => $user->api_token
+            ], 200);
+        }
+        throw ValidationException::withMessages([
+            'email' =>['Данные введены не корренктно']
+        ]);
+    }
+    public function user(Request $request)
+    {
+        $user = User::where(["email" => $request["email"]])->first();
     }
 }
