@@ -4,6 +4,7 @@ import Catalog from '../pages/Catalog.vue'
 import Home from '../pages/Home.vue'
 import Register from '../pages/Register.vue'
 import Login from '../pages/Login.vue'
+import Profile from "../pages/Profile.vue";
 
 const routes = [
     {
@@ -25,6 +26,11 @@ const routes = [
         path: "/login",
         name: "Login",
         component: Login,
+    },
+    {
+        path: "/profile",
+        name: "Profile",
+        component: Profile,
     },
 ];
 

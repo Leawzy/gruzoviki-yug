@@ -119,6 +119,7 @@ export default {
                 .then(res => {
                     if (res.status === 204){
                         localStorage.setItem('token', res.data.token)
+                        this.$router.push({name: "Home"})
                     }
                     console.log(res);
                 })

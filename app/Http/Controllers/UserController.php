@@ -55,8 +55,26 @@ class UserController extends Controller
             'email' =>['Данные введены не корренктно']
         ]);
     }
-    public function user(Request $request)
+    public function profile(Request $request)
     {
-        $user = User::where(["email" => $request["email"]])->first();
+        $data = $request->header('Profile');
+        $user = User::where(["api_token" => $data])->first();
+
+
+        return response()->json([
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'email' => $user->email
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        $data = $request->header('Profile');
+
+        $logout = "Вы успешно вышли";
+        return response()->json([
+            'logout' == $logout
+        ], 200);
     }
 }
