@@ -117,7 +117,7 @@ export default {
                 password_confirmation: this.password_confirmation,
             })
                 .then(res => {
-                    if (res.status === 204){
+                    if (res.status === 201){
                         localStorage.setItem('token', res.data.token)
                         this.$router.push({name: "Home"})
                     }

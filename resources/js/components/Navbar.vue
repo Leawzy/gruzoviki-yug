@@ -24,7 +24,7 @@
             <nav class="contents">
                 <ul class="ml-4 xl:w-48 flex items-center justify-end">
                     <li class="ml-2 lg:ml-4 relative inline-block">
-                        <router-link :to="{name: 'Register'}">
+                        <router-link :to="{name: 'Login'}">
                             <svg class="svg-inline--fa fa-user fa-w-14 fa-9x h-9 lg:h-10 p-2 text-gray-500" aria-hidden="true" focusable="false"
                                  data-prefix="far" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 448 512">
