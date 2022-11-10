@@ -18,7 +18,10 @@ import Navbar from "../components/Navbar.vue";
 
 export default {
     name: "Home",
-    components: {Navbar, Footer, Products, Button, Slider}
+    components: {Navbar, Footer, Products, Button, Slider},
+    mounted() {
+        document.title = 'Главная страница'
+    }
 }
 </script>
 

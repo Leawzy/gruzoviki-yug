@@ -85,6 +85,9 @@ export default {
                     console.log("ERRRR:: ", error.response.data);
                 })
         }
+    },
+    mounted() {
+        document.title = 'Авторизироваться'
     }
 }
 </script>

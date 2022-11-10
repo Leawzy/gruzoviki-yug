@@ -27,6 +27,7 @@ export default {
 
     mounted() {
         this.getUser()
+        document.title = 'Профиль'
     },
 
     methods: {

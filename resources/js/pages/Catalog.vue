@@ -13,7 +13,16 @@ import Footer from "../components/Footer.vue";
 
 export default {
     name: "Catalog",
-    components: {Navbar, Footer}
+    components: {Navbar, Footer},
+    mounted() {
+        this.getCatalog()
+        document.title = 'Каталог'
+    },
+    methods: {
+        getCatalog() {
+
+        }
+    }
 }
 </script>
 
