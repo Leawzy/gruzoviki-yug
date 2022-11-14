@@ -57,9 +57,10 @@
 
 import Dropmenu from "@/components/Other/Dropmenu.vue";
 import DropMenuProfile from "@/components/Other/DropMenuProfile.vue";
+
 export default {
     name: "Navbar",
-    components: {DropMenuProfile, Dropmenu}
+    components: {DropMenuProfile, Dropmenu},
 }
 </script>
 

@@ -65,7 +65,10 @@ export default {
                 .then((res) =>{
                     console.log(res)
                     this.products = res.data.data
-                });
+                })
+                .catch((error) => {
+                    console.log("ERRRR:: ", error.response.data);
+                })
         }
     }
 }
