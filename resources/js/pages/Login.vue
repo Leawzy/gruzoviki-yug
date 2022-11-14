@@ -31,11 +31,12 @@
                                 placeholder="******************"
                                 v-model="password"
                             />
+                            <p class="text-xs italic text-red-500">Впишите свой пароль в поле</p>
                         </div>
                         <div class="mb-6 text-center">
                             <button class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                                     type="button" @click.prevent="login">
-                                Авторизоваться в аккаунт
+                                Создать аккаунт
                             </button>
                         </div>
                         <hr class="mb-6 border-t"/>
