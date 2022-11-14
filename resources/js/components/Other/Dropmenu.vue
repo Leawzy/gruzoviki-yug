@@ -11,22 +11,22 @@
             <MenuItems class="absolute left-0 z-10 mt-3 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div class="py-1">
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Двигатель</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Двигатель</router-link>
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Трансмиссия</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Трансмиссия</router-link>
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Топливная система</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Топливная система</router-link>
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Подвеска</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Подвеска</router-link>
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Выпускная система</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Выпускная система</router-link>
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
-                        <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Тормозные системы</a>
+                        <router-link :to="{name: 'Catalog'}" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Тормозные системы</router-link>
                     </MenuItem>
                 </div>
             </MenuItems>

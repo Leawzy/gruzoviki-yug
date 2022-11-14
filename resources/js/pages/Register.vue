@@ -58,7 +58,6 @@
                                     placeholder="******************"
                                     v-model="password"
                                 />
-                                <p class="text-xs italic text-red-500">Впишите свой пароль в поле</p>
                             </div>
                             <div class="md:ml-2">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="c_password">
